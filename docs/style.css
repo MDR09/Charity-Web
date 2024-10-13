@@ -389,9 +389,9 @@ p a:hover {
     filter: grayscale(100);
     transition: 0.4s;
 }
-.program .boxContainer .box:nth-child(1) .cardImage,
+/* .program .boxContainer .box:nth-child(1) .cardImage,
 .program .boxContainer .box:nth-child(1) .cardImage::after{
-    background-image: url("../programs/1.jpg");
+    background-image: url("1.jpg");
 }
 .program .boxContainer .box:nth-child(2) .cardImage,
 .program .boxContainer .box:nth-child(2) .cardImage::after{
@@ -404,7 +404,7 @@ p a:hover {
 .program .boxContainer .box:nth-child(4) .cardImage,
 .program .boxContainer .box:nth-child(4) .cardImage::after{
     background-image: url("../programs/4.jpg");
-}
+} */
 .program .boxContainer .box:hover .cardImage::after{
     top:100%;
 }
