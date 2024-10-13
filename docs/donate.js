@@ -1,5 +1,5 @@
-// donate.js
-let isLoggedIn = localStorage.getItem("isLoggedIn") === "true"; // Check login state on page load
+// Check login state on page load
+let isLoggedIn = localStorage.getItem("isLoggedIn") === "true"; 
 
 // Get references to the login/signup modal and buttons
 const loginSignupModal = document.getElementById("loginSignupModal");
@@ -14,7 +14,7 @@ loginButton.addEventListener("click", function() {
         localStorage.setItem("isLoggedIn", "false"); // Update local storage
         loginButton.textContent = "Login"; // Change text back to 'Login'
         loginButton.classList.remove("active"); // Remove active class
-        alert("You have been logged out."); // Optional: Show a message
+        alert("You have been logged out.");
     } else {
         // Show login/signup modal if not logged in
         loginSignupModal.style.display = 'block';
@@ -41,8 +41,8 @@ document.getElementById("submitLogin").addEventListener("click", function() {
     alert("You are now logged in. You can donate now.");
 
     // Change the login button to a logout button and activate it
-    loginButton.textContent = "Logout"; // Change text to 'Logout'
-    loginButton.classList.add("active"); // Add active class
+    loginButton.textContent = "Logout";
+    loginButton.classList.add("active");
 });
 
 // Logic to handle modal close
@@ -68,6 +68,7 @@ if (isLoggedIn) {
     loginButton.classList.add("active"); // Add active class
 }
 
+// Function to handle donation amount submission
 document.getElementById("submitDonate").addEventListener("click", function() {
     const customAmountInput = document.getElementById("customAmount");
     const errorMessage = document.getElementById("errorMessage");
@@ -83,7 +84,7 @@ document.getElementById("submitDonate").addEventListener("click", function() {
 
     // Validate the donation amount
     if (isNaN(donationAmount) || donationAmount <= 0) {
-        errorMessage.textContent = "Please enter a donation amount.";
+        errorMessage.textContent = "Please enter a valid donation amount.";
         customAmountInput.focus();
         return; // Prevent further action
     }
@@ -91,14 +92,14 @@ document.getElementById("submitDonate").addEventListener("click", function() {
     if (donationAmount < 500) {
         errorMessage.textContent = "The minimum donation amount is ₹500.";
         customAmountInput.focus();
+
+        // Hide form container and ensure donation options are still visible
+        document.getElementById("formContainer").style.display = "none";
+        document.getElementById("donationOptions").style.display = "block"; 
         return; // Prevent further action
     }
 
-    if (donationAmount == 500){
-        document.getElementById('donationOptions').style.display = 'none';
-        document.getElementById("formContainer").style.display = "block";
-    }
-    // If amount is valid, show the form container
+    // If amount is valid and meets the minimum, proceed with showing the form
     document.getElementById('donationOptions').style.display = 'none';
     document.getElementById("formContainer").style.display = "block";
 });
@@ -112,9 +113,3 @@ function goBack() {
     document.getElementById('donationOptions').style.display = 'block'; // Show the donation options
     document.getElementById('formContainer').style.display = 'none'; // Hide the new form container
 }
-
-
-
-
-
-
