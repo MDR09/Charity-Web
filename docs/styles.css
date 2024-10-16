@@ -24,6 +24,7 @@ p{
     width: 1140px;
     margin: auto;
 }
+
 .sectionTitle{
     width: 300px;
     border-bottom: 3px solid var(--themeRed);
@@ -269,12 +270,14 @@ p a:hover {
     font-weight: 100;
 }
 .banner h1 span{
-    background-color: var(--themeRed);
+    /* background-color: var(--themeRed); */
+    color: var(--themeRed);
     display: inline-block;
     line-height: 3.5rem;
-    padding: 0 15px;
+    /* padding: 0 15px; */
     font-weight: 600;
     border-radius: 5px;
+    user-select: none;
 }
 .banner p{
     color: #fff;
@@ -391,19 +394,19 @@ p a:hover {
 }
 .program .boxContainer .box:nth-child(1) .cardImage,
 .program .boxContainer .box:nth-child(1) .cardImage::after{
-    background-image: url(1.jpg);
+    background-image: url("../images/programs/1.jpg");
 }
 .program .boxContainer .box:nth-child(2) .cardImage,
 .program .boxContainer .box:nth-child(2) .cardImage::after{
-    background-image: url(2.jpg);
+    background-image: url("../images/programs/2.jpg");
 }
 .program .boxContainer .box:nth-child(3) .cardImage,
 .program .boxContainer .box:nth-child(3) .cardImage::after{
-    background-image: url(3.jpg);
+    background-image: url("../images/programs/3.jpg");
 }
 .program .boxContainer .box:nth-child(4) .cardImage,
 .program .boxContainer .box:nth-child(4) .cardImage::after{
-    background-image: url(4.jpg);
+    background-image: url("../images/programs/4.jpg");
 }
 .program .boxContainer .box:hover .cardImage::after{
     top:100%;
