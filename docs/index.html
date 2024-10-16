@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Charity-website</title>
-    <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-database.js"></script>
-
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database.js"></script>
+    <style>
+            .typed-cursor {
+            opacity: 0 !important; /* Completely hide the blinking cursor */
+        }
+    </style>
 </head>
-<link rel="stylesheet" href="styles.css">
+    
+</head>
+<link rel="stylesheet" href="style.css">
 <body>
     <div class="fullContainer banner" id = "homeSection">
         <header>
@@ -48,6 +53,9 @@
                         <li id="navMyDonation" style="display: none;">
                             <a href="#myDonations">My Donations</a>
                         </li>
+                        <li id="navAllDonations" style="display: none;">
+                            <a href="#allDonation">All Donations</a>
+                        </li>
                         <li id="navLogout" style="display: none;">
                             <button id="logoutBtn">Logout</button>
                         </li>
@@ -73,14 +81,15 @@
                         <input type="password" id="loginPassword" placeholder="Enter your password">
                     </div>
                     <button id="submitLogin">Login</button>
+                    <!-- <button id="googleLoginBtn">Login with Google</button> -->
                     <p>Don't have an account? <a href="#" id="signupLink">Sign up here</a></p>
                 </div>
 
                 <div id="signupForm" style="display: none;">
                     <h2>Sign Up</h2>
                     <div class="input-group">
-                        <label for="Name">Name:</label>
-                        <input type="name" id="Name" placeholder="Enter your name">
+                        <label for="signupName">Name:</label>
+                        <input type="text" id="signupName" placeholder="Enter your name">
                     </div>
                     <div class="input-group">
                         <label for="signupEmail">Email:</label>
@@ -89,20 +98,21 @@
                     <div class="input-group">
                         <label for="signupPassword">Password:</label>
                         <input type="password" id="signupPassword" placeholder="Enter your password">
+                        
                     </div>
-                    <div class="input-group">
+                    <!-- <div class="input-group">
                         <label for="confirmPassword">Confirm Password:</label>
-                        <input type="confirmPassword" id="confirmPassword" placeholder="Confirm password">
-                    </div>
+                        <input type="Password" id="confirmPassword" placeholder="Confirm password">
+                    </div> -->
                     <button id="submitSignup">Sign Up</button>
                     <p>Already have an account? <a href="#" id="loginLink">Login here</a></p>
                 </div>
             </div>
         </div>
-
+        
 
         <div class="container">
-            <h1>Together We Can <span>Save Lives</span></h1>
+            <h1>Together We Can <br><span class="role"></span></h1>
             <p>
                 Every small act of kindness, every donation, and every moment of bsupport has the power to make a lasting 
                 difference. By uniting our efforts, we can provide vital resources, care, and hope to those in need. 
@@ -291,6 +301,70 @@
             </div>
         </div>
     </footer>
-    <script src="home.js"></script>
+    <!-- <script type="module">
+        // Import Firebase functions
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+        import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-database.js";
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBGMUO9YFJnO-F6QhtqJyisDZleHQvgygY",
+            authDomain: "charity-78b81.firebaseapp.com",
+            projectId: "charity-78b81",
+            storageBucket: "charity-78b81.appspot.com",
+            messagingSenderId: "351871288311",
+            appId: "1:351871288311:web:057d6d5a4575d67ba524f2",
+            measurementId: "G-2TM815MBN5"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+
+        // Reference to Firebase Database
+        const db = getDatabase(app);
+
+        // Add event listener for Sign Up button
+        document.getElementById('submitSignup').addEventListener('click', function(e) {
+            e.preventDefault();
+
+            // Get the values from the signup form
+            const name = document.getElementById('signupName').value;
+            const email = document.getElementById('signupEmail').value;
+            const password = document.getElementById('signupPassword').value;
+
+            // Validate if fields are not empty
+            if (name === "" || email === "" || password === "") {
+                alert("All fields are required!");
+                return;
+            }
+
+            // Store the signup details in Firebase Realtime Database
+            set(ref(db, 'users/' + name), {
+                username: name,
+                email: email,
+                password: password
+            }).then(() => {
+                alert('Sign up successful!');
+            }).catch((error) => {
+                alert('Error: ' + error.message);
+            });
+        });
+    </script> -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+        var typeData = new Typed(".role", {
+          strings: [
+            "Save Lives",
+            "Make A Difference",
+            "Change The World",
+            
+          ],
+          loop: true,
+          typeSpeed: 100,
+          backSpeed: 80,
+          backDelay: 1000,
+        });
+      </script>
+    <script type="module" src="home.js"></script>
 </body>
 </html>
